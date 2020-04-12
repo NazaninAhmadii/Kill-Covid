@@ -382,7 +382,7 @@ setInterval(() => {
     } else {
         itemArr.push( new COVID);
     }
-},1000);
+},800);
 
 setInterval(() =>{ // we move items by it by loop through the array of objects we made in previouse setInterval
     for( let i=0; i < itemArr.length; i++) {
