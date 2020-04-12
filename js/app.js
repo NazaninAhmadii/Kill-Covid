@@ -262,7 +262,7 @@ class Kid extends Player {
 
     init () {
         super.init();
-        lblBabyBul.innerHTML = `Baby Bullet Count: ${this.bulletCount}`;
+        lblBabyBul.innerHTML = `Baby Bullet: ${this.bulletCount}`;
         const bcodeset = {32:false}
         window.addEventListener('keydown' ,function(e) {
             if (e.keyCode in bcodeset && this.bulletCount>0) {
@@ -275,7 +275,7 @@ class Kid extends Player {
                     bullet.drawItem();
                     bulletArr.push(bullet);
                     this.bulletCount -=1;
-                    lblBabyBul.innerHTML = `Baby Bullet Count: ${this.bulletCount}`;
+                    lblBabyBul.innerHTML = `Baby Bullet: ${this.bulletCount}`;
                 }
                 bcodeset[e.keyCode] = false;
             }
