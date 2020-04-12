@@ -16,6 +16,7 @@ let lblAlert = document.getElementById("alertlbl");
 let lblFood = document.getElementById("foodlbl");
 let lblReward = document.getElementById("rewardlbl");
 let lblVirus = document.getElementById("viruslbl");
+let lblBabyBul = document.getElementById("babybulletlbl");
 
 /***********************************************************
  * **************** Variable Definition*********************
@@ -242,6 +243,7 @@ class Mom extends Player {
 class Kid extends Player {
     constructor(x,y,size,step, image) {
         super(x,y,size,step, image);
+        this.bulletCount = 3;
     }
 
     movement() {
@@ -255,6 +257,30 @@ class Kid extends Player {
         } else if (changeDirection == true) {
                 Baby.xPos -= Baby.step;
         }
+        
+    }
+
+    init () {
+        super.init();
+        lblBabyBul.innerHTML = `Baby Bullet Count: ${this.bulletCount}`;
+        const bcodeset = {32:false}
+        window.addEventListener('keydown' ,function(e) {
+            if (e.keyCode in bcodeset && this.bulletCount>0) {
+                bcodeset[e.keyCode] = true;
+                console.log(e.keyCode);
+                if(bcodeset[32]) {
+                    const bullet = new Bullet();
+                    bullet.xPos = this.xPos + 25;
+                    bullet.yPos = this.yPos - bullet.size;
+                    bullet.drawItem();
+                    bulletArr.push(bullet);
+                    this.bulletCount -=1;
+                    lblBabyBul.innerHTML = `Baby Bullet Count: ${this.bulletCount}`;
+                }
+                bcodeset[e.keyCode] = false;
+            }
+        }.bind(this));
+
         
     }
 }
@@ -336,6 +362,7 @@ Nazanin.init();
 const Baby = new Kid(0, 650, 50, 5, babylImg);
 Baby.init();
 
+
 lblVirus.innerHTML = `Virus: ${Nazanin.virus}`;
 lblFood.innerHTML = `Food: ${Nazanin.food}`;
 lblReward.innerHTML = `Reward: ${Nazanin.reward}`;
@@ -355,7 +382,7 @@ setInterval(() => {
     } else {
         itemArr.push( new COVID);
     }
-},1500);
+},1000);
 
 setInterval(() =>{ // we move items by it by loop through the array of objects we made in previouse setInterval
     for( let i=0; i < itemArr.length; i++) {
