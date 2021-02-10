@@ -432,7 +432,7 @@ setInterval(() =>{ // Baby Cries when get hungry
 
     });
     // then register our service worker
-    navigator.serviceWorker.register('./sw.js', { scope: '/' })
+    navigator.serviceWorker.register('./sw.js', { scope: '/Kill-Covid/' })
       .then(function (reg) {
         // display a success message
         console.log(`Service Worker Registration (Scope: ${reg.scope})`);
