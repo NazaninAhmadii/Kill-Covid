@@ -13,7 +13,7 @@
       "type": "image/png"
     }
   ],
-  "start_url": "/Kill-Covid/",
+  "start_url": "/kill-covid/?source=pwa",
   "display": "fullscreen",
   "background_color": "#FF6F6F",
   "theme_color": "#FF6F6F"
