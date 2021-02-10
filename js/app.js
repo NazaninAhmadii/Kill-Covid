@@ -73,7 +73,7 @@ const reDraw = () => {
                         alert("Oops!!! You Got Virus, Game is Over!");
                         location.reload();
                     }
-                    console.log('Virus is '+ Nazanin.virus);
+                    // console.log('Virus is '+ Nazanin.virus);
                     if(itemArr[i].covidNum === 19) {
                         alert("Oops!!! You Got Covid-19, Game is Over!");
                         location.reload();
@@ -138,7 +138,7 @@ const reDraw = () => {
             if(iX < jX + jSize && iX + iSize > jX && iY < jY + jSize && iY + iSize > jY ){
                 itemArr.splice(i, 1);
                 bulletArr.splice(j, 1);
-                console.log("collapsed");
+                // console.log("collapsed");
             }
              
             bulletArr[j].drawItem();
